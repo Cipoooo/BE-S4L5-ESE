@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import weel_project.spbt_week_project1.enumeration.Tipo_di_Postazione;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,15 +26,15 @@ public class Postazione {
     @ManyToMany
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
-    private boolean disponibile;
-    @OneToMany
-    private List<Prenotazione> lista_delle_Prenotazioni = new ArrayList<Prenotazione>();
+    private boolean isDisponibile;
+    @OneToMany(mappedBy = "postazione")
+    private List<Prenotazione> lista_delle_Prenotazioni = new ArrayList<>();
 
-    public Postazione(String descrizione, Tipo_di_Postazione tipo_di_postazione, int maxNum, Edificio edificio, boolean disponibile, List<Prenotazione> lista_delle_Prenotazioni) {
+    public Postazione(String descrizione, Tipo_di_Postazione tipo_di_postazione, int maxNum, Edificio edificio, boolean isDisponibile) {
         this.descrizione = descrizione;
         this.tipo_di_postazione = tipo_di_postazione;
         this.maxNum = maxNum;
         this.edificio = edificio;
-        this.disponibile = true;
+        this.isDisponibile = isDisponibile;
     }
 }

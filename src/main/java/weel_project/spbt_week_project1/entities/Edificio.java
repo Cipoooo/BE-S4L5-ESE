@@ -16,24 +16,18 @@ import java.util.List;
 @Data
 public class Edificio {
 
-       @Id
+        @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String nome;
         private String indirizzo;
         private String citta;
-        @OneToMany(fetch = FetchType.EAGER)
-        private List<Postazione> lista_delle_postazioni = new ArrayList<Postazione>();
 
-        public Edificio(String nome, String indirizzo, String citta, List<Postazione> lista_delle_postazioni) {
+        public Edificio(String nome, String indirizzo, String citta) {
             this.nome = nome;
             this.indirizzo = indirizzo;
             this.citta = citta;
-            this.lista_delle_postazioni = lista_delle_postazioni;
         }
 
-        public void addPostazione(Postazione postazione){
-            this.lista_delle_postazioni.add(postazione);
-        }
 
 }

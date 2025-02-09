@@ -17,12 +17,12 @@ public class Utente {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;
+   private Long id;
    private String username;
    private String fullname;
    private String mail;
    @OneToMany(mappedBy = "utente")
-   private List<Prenotazione> lista_delle_Prenotazioni = new ArrayList<Prenotazione>();
+   private List<Prenotazione> lista_delle_Prenotazioni = new ArrayList<>();
 
     public Utente(String username, String fullname, String mail) {
         this.username = username;
